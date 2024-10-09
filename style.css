@@ -5,107 +5,105 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #0a0a0d; 
-    font-family: 'Roboto', sans-serif; 
+    background: linear-gradient(to bottom right, #1c1c1e, #3c3c3e);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .card {
-    background-color: #1c1c2a; 
-    border-radius: 15px; 
-    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.8); 
-    padding: 30px;
+    background-color: #2c2c2e;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.7);
+    padding: 40px;
     text-align: center;
-    width: 320px;
+    width: 90%;
+    height: 300px;
+    max-width: 400px;
     position: relative;
-    border: 1px solid #4b4b67; 
-    transition: box-shadow 0.3s ease; 
-}
-.card:hover {
-    box-shadow: 0 0 20px rgba(106, 90, 205, 0.7), 0 0 40px rgba(106, 90, 205, 0.5); /* Glow effect on hover */
+    border: 1px solid #444;
 }
 
-
-.heading {
-    font-size: 26px;
-    color: #e4c4f1; 
-    margin-bottom: 20px;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); 
+.metamask-heading {
+    font-size: 24px; /* Heading size */
+    color: #c389e7; /* MetaMask theme color */
+    margin-bottom: 130px; /* Space below the heading */
 }
 
 .logo-container {
     position: relative;
     width: 120px;
     height: 120px;
-    margin: 0 auto 20px; 
+    margin: 0 auto 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.metamask-logo {
-    width: 100px; 
-    height: 100px; 
-    z-index: 2; 
+.metamask-logo,
+.polygon-logo {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    margin-top: 70px;
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.loader {
-    width: 120px; 
-    height: 120px; 
-    border: 10px solid rgba(255, 255, 255, 0.3); 
-    border-top: 10px solid #6a5acd; 
-    border-radius: 50%; 
-    position: absolute; 
-    animation: spin 1.5s linear infinite; 
-    visibility: hidden; 
+.polygon-logo {
     opacity: 0; 
-    top: 50%;
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-    transition: opacity 0.3s ease; 
-}
-
-@keyframes spin {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg); 
-    }
-    100% {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
+    transform: scale(0);
 }
 
 .loading {
-    visibility: visible; 
-    opacity: 1; 
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 5px solid transparent;
+    border-top: 5px solid #A020F0; 
+    border-radius: 50%;
+    animation: square-spin 0.9s linear infinite; /* Loading animation */
+    z-index: 0; /* Adjust z-index */
+    display: none; /* Initially hidden */
+    margin-top: 70px;
+}
+
+@keyframes square-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .connect-text {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
-    color: #f5f5f5; 
+    color: #f5f5f5;
+    margin-top: 50px;
     margin-bottom: 10px;
 }
 
 .instruction-text {
     font-size: 14px;
-    color: #b0b0b0; 
+    color: #b0b0b0;
     margin-bottom: 20px;
+    margin-top: 1px;
+    
 }
 
 .try-again-btn {
-    background: linear-gradient(145deg, #4b0082, #6a5acd);
+    background: linear-gradient(45deg, #6a0dad, #4b0082); /* Dark purple gradient for button */
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    transition: background 0.3s ease, transform 0.2s ease; 
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); 
+ 
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth transition */
 }
 
 .try-again-btn:hover {
-    transform: scale(1.05); /* Slight scaling effect */
-    background: linear-gradient(145deg, #6a5acd, #4b0082); /* Reversed gradient for hover */
-    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.5); /* Deeper shadow on hover */
+    background: linear-gradient(45deg, #4b0082, #3d007a); /* Darker purple gradient on hover */
+    transform: scale(1.05); /* Slight scale effect on hover */
 }
+

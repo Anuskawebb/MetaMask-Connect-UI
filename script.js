@@ -1,28 +1,42 @@
-// document.getElementById('connectButton').addEventListener('click', async () => {
-//     if (typeof window.ethereum !== 'undefined') {
-//         try {
-//             const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-//             document.getElementById('account').innerText = `Connected: ${accounts[0]}`;
-//         } catch (error) {
-//             console.error('Error connecting to MetaMask:', error);
-//         }
-//     } else {
-//         alert('MetaMask is not installed');
-//     }
-// });
+const tryAgainButton = document.querySelector('.try-again-btn');
+const metamaskLogo = document.querySelector('.metamask-logo');
+const polygonLogo = document.querySelector('.polygon-logo');
+const loadingAnimation = document.querySelector('.loading');
 
+// Initially show only the MetaMask logo
+polygonLogo.style.opacity = '0';
+polygonLogo.style.transform = 'scale(0)';
 
-document.getElementById('connectButton').addEventListener('click', function() {
-    
-    document.getElementById('loader').style.visibility = 'visible';
-    document.getElementById('loader').style.opacity = '1';
+let isLoading = false;
 
-    
-    setTimeout(function() {
-       
-        document.getElementById('loader').style.visibility = 'hidden';
-        document.getElementById('loader').style.opacity = '0';
+tryAgainButton.addEventListener('click', () => {
+    if (!isLoading) {
+        isLoading = true;
+        loadingAnimation.style.display = 'block';
 
         
-    }, 3000); 
+        toggleLogos();
+    }
 });
+
+function toggleLogos() {
+    // Zoom out MetaMask logo and zoom in Polygon logo
+    metamaskLogo.style.transform = 'scale(0)';
+    metamaskLogo.style.opacity = '0';
+    polygonLogo.style.opacity = '1';
+    polygonLogo.style.transform = 'scale(1)';
+
+    
+    setTimeout(() => {
+        // Zoom out Polygon logo and zoom in MetaMask logo
+        polygonLogo.style.transform = 'scale(0)';
+        polygonLogo.style.opacity = '0';
+        metamaskLogo.style.opacity = '1';
+        metamaskLogo.style.transform = 'scale(1)';
+
+       
+        if (isLoading) {
+            setTimeout(toggleLogos, 900); 
+        }
+    }, 900); 
+}
