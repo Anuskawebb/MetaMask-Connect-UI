@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    background-color: #f0f2f5; 
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #282c34;
+    padding: 10px;
+    color: white;
+    border-radius: 15px; /
+    width: 300px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: width 0.3s; 
+}
+
+
+
+.icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+}
+
+.wallet-info {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.balance {
+    font-size: 18px;
+}
+
+.address {
+    font-size: 14px;
+    color: lightgrey;
+}
+
